@@ -1,4 +1,5 @@
 module.exports = function (bot) {
+  // Commande /start
   bot.start((ctx) => {
     ctx.reply(
       `🎓 *Bienvenue dans la RPA Académie !*\nTon espace de formation 100% sur Telegram 🚀\n\n👇 Choisis une option ci-dessous :`,
@@ -20,9 +21,8 @@ module.exports = function (bot) {
       }
     );
   });
-};
 
-module.exports = function (bot) {
+  // Actions sur les boutons
   bot.action("modules", (ctx) => {
     ctx.reply(
       `📘 *Modules gratuits disponibles* :
@@ -36,7 +36,7 @@ module.exports = function (bot) {
     );
   });
 
- bot.action("inscription", (ctx) => {
+  bot.action("inscription", (ctx) => {
     ctx.reply(
       `📝 *Inscription à la Rich-Preneur-Académie*
 
@@ -85,7 +85,7 @@ Voici ce que t’offre la version Premium :
     ctx.reply(
       `📞 *Contacte-nous* :
   
-💬 Telegram : @RichPreneurAcademie
+💬 Telegram : @RichPreneurAcademie  
 📧 Email : richpreneuracademie@gmail.com`,
       { parse_mode: "Markdown" }
     );

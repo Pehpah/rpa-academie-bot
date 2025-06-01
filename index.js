@@ -3,23 +3,21 @@ const express = require("express");
 const { Telegraf } = require("telegraf");
 const path = require("path");
 
-// ==== Initialisation ====
 const app = express();
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // ==== Handlers ====
 const welcomeHandler = require("./handlers/welcomeHandler");
-const { handleCoaching } = require("./handlers/coachHandler");
+const coach = require("./handlers/coachHandler");
 const unknownHandler = require("./handlers/unknownHandler");
-const coachHandler = require("./handlers/coachHandler");
 
 // Appel des handlers
 welcomeHandler(bot);
+coach(bot);
 unknownHandler(bot);
-coachHandler(bot);
 
-// ==== Commande de coaching ====
-bot.command("coaching", handleCoaching);
+// ==== Commande coaching ====
+bot.command("coaching", coach.handleCoaching);
 
 // ==== Nettoyage automatique des fichiers de logs ====
 const { cleanOldFiles } = require("./utils/fileCleaner");
@@ -34,13 +32,13 @@ setInterval(() => {
 const logViewerRoutes = require("./routes/logViewer");
 app.use("/logs", logViewerRoutes);
 
-// ==== Route principale pour Render ====
+// ==== Route principale ====
 const PORT = process.env.PORT || 3000;
 app.get("/", (req, res) => {
   res.send("✅ RPA Bot est actif et prêt à coacher !");
 });
 
-// ==== Lancement Express + Bot ====
+// ==== Lancement ====
 app.listen(PORT, async () => {
   console.log(`🚀 Serveur Express lancé sur le port ${PORT}`);
   await bot.launch();
