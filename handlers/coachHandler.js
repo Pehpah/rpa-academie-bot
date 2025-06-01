@@ -1,4 +1,4 @@
-// coachingHandler.js
+// handlers/coachHandler.js
 
 const fs = require('fs');
 const path = require('path');
@@ -146,13 +146,19 @@ async function handleCoaching(ctx) {
   saveUserProgress(userId, progress);
 }
 
-module.exports = (bot) => {
-  bot.command('coaching', handleCoaching);
-
-  bot.command('reset', async (ctx) => {
-    deleteUserProgress(ctx.from.id);
-    await ctx.reply('🔁 Coaching réinitialisé. Tapez /coaching pour recommencer.');
+// 📦 Export
+module.exports = function (bot) {
+  bot.action("coaching", (ctx) => {
+    ctx.reply("🎯 Tu veux un coaching ? Réserve-le ici : https://tally.so/r/nPeGr5");
   });
 
-  cleanOldFiles();
+  bot.command("reset", async (ctx) => {
+    deleteUserProgress(ctx.from.id);
+    await ctx.reply("🔁 Coaching réinitialisé. Tape /coaching pour recommencer.");
+  });
+
+  cleanOldFiles(); // Nettoyage au lancement
 };
+
+// 👇 Export de la fonction principale pour index.js
+module.exports.handleCoaching = handleCoaching;

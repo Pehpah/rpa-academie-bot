@@ -8,37 +8,37 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // ==== Handlers ====
 const welcomeHandler = require("./handlers/welcomeHandler");
-const coach = require("./handlers/coachHandler");
+const coachHandler = require("./handlers/coachHandler");
 const unknownHandler = require("./handlers/unknownHandler");
 
-// Appel des handlers
+// Enregistrement des handlers
 welcomeHandler(bot);
-coach(bot);
+coachHandler(bot);
 unknownHandler(bot);
 
-// ==== Commande coaching ====
-bot.command("coaching", coach.handleCoaching);
+// ✅ Commande coaching
+bot.command("coaching", coachHandler.handleCoaching);
 
-// ==== Nettoyage automatique des fichiers de logs ====
+// ✅ Nettoyage régulier des fichiers expirés
 const { cleanOldFiles } = require("./utils/fileCleaner");
-cleanOldFiles(); // au démarrage
+cleanOldFiles(); // au lancement
 
 setInterval(() => {
   console.log("🧹 Nettoyage automatique des fichiers obsolètes...");
   cleanOldFiles();
-}, 24 * 60 * 60 * 1000); // chaque 24h
+}, 24 * 60 * 60 * 1000); // toutes les 24h
 
-// ==== Interface de visualisation des logs ====
+// ✅ Interface web (visualisation logs)
 const logViewerRoutes = require("./routes/logViewer");
 app.use("/logs", logViewerRoutes);
 
-// ==== Route principale ====
+// ✅ Route principale
 const PORT = process.env.PORT || 3000;
 app.get("/", (req, res) => {
   res.send("✅ RPA Bot est actif et prêt à coacher !");
 });
 
-// ==== Lancement ====
+// ✅ Lancement
 app.listen(PORT, async () => {
   console.log(`🚀 Serveur Express lancé sur le port ${PORT}`);
   await bot.launch();
