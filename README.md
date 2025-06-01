@@ -1,35 +1,44 @@
-# 🤖 RP Académie Bot
+# 🤖 RPA-ACADEMIE-BOT
 
-Un bot Telegram intelligent pour accueillir les nouveaux membres de l’Académie RPA et coacher les membres du canal public sur 3 modules clés.
-
-RPA Bot est un bot Telegram conçu pour accompagner les entrepreneurs dans leur parcours avec un coaching structuré sur 3 semaines, basé sur 3 modules clés :  
-- Mentalité d’entrepreneur  
-- Organisation & Objectifs  
-- Marché & Clients
-
-Le bot vérifie si l’utilisateur est inscrit à la Rich-Preneur-Académie (RPA), gère la progression du coaching localement via des fichiers sur le serveur, et supprime automatiquement les données de plus de 22 jours pour garder un résumé personnalisé.
+Un assistant intelligent basé sur Telegram, conçu pour accompagner les membres de l'Académie RPA dans leur apprentissage, leur coaching et leur progression personnalisée via l'IA (OpenAI) et des outils d’automatisation.
 
 ---
 
-## 📌 Fonctionnalités
+## 🚀 Fonctionnalités
 
-- 🎓 Accueil automatisé des utilisateurs avec un message clair et orienté.
-- 🧠 Coaching OpenAI GPT-3.5-turbo sur 3 modules gratuits :
-  1. Mentalité d’entrepreneur242
-  2. Organisation & Objectifs
-  3. Marché & Clients
-- - **Vérification d'inscription** dans les canaux RPA (gratuit ou premium) avant de lancer le coaching.
-- **Suivi de progression** stocké localement en JSON par utilisateur.
-- **Nettoyage automatique** des fichiers de progression après 22 jours, planifié via un cron job.
-- **Gestion des inscriptions** à RPA (gratuit et premium) directement depuis le bot avec boutons cliquables.
-- **Déploiement simple** sur Render avec Express et Telegraf.
+- 🎓 Accueil automatique des nouveaux membres
+- 🧠 Coaching personnalisé via OpenAI (GPT)
+- 🗂️ Suivi des progrès (fichiers JSON)
+- ✅ Vérification d'abonnement ou d'accès
+- 🔘 Boutons interactifs (Telegraf Inline Keyboards)
+- 📦 Structure modulaire claire (handlers, services, utils)
+- 🛠️ Admin : visualisation des logs via route `/logviewer`
 
 ---
 
-## 🚀 Démarrage rapide
+## 📁 Structure du projet
 
-### 1. Cloner le dépôt
+/RPA-ACADEMIE-BOT
+├── /data # Données utilisateurs (ex: 123456789.json)
+├── /handlers # Gestion des commandes et événements Telegram
+│ ├── coachHandler.js
+│ ├── unknownHandler.js
+│ └── welcomeHandler.js
+├── /logs # Fichiers logs
+├── /progress # Suivi de coaching
+├── /routes # Routes Express (logviewer, etc.)
+├── /services # Intégrations (ex: OpenAI)
+├── /utils # Fonctions utilitaires (Telegram, OpenAI, logs)
+├── .env # Variables d'environnement (non versionné)
+├── .gitignore
+├── index.js # Point d'entrée principal du bot
+├── package.json
+├── README.md
+└── render.yaml # Déploiement Render
 
-```bash
-git clone https://github.com/ton-user/rpa-academie-bot.git
-cd rpa-academie-bot
+## ⚙️ Installation locale
+
+1. **Cloner le dépôt** :
+   ```bash
+   git clone https://github.com/tonpseudo/rpa-academie-bot.git
+   cd rpa-academie-bot

@@ -9,7 +9,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // ==== Handlers ====
 const welcomeHandler = require("./handlers/welcomeHandler");
-const { handleCoaching } = require("./handlers/coachingHandler");
+const { handleCoaching } = require("./handlers/coachHandler");
 const unknownHandler = require("./handlers/unknownHandler");
 const coachHandler = require("./handlers/coachHandler");
 
