@@ -1,7 +1,0 @@
-{
-  "name": "rpa-academie-bot",
-  "main": "index.js",
-  "dependencies": {
-    "telegraf": "^4.12.2"
-  }
-}

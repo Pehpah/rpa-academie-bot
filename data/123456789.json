@@ -1,0 +1,17 @@
+{
+  "currentDay": 5,
+  "history": [
+    {
+      "day": 1,
+      "module": "Mentalité d’entrepreneur",
+      "date": "2025-05-10T19:32:11.232Z"
+    },
+    {
+      "day": 2,
+      "module": "Mentalité d’entrepreneur",
+      "date": "2025-05-11T19:35:04.178Z"
+    }
+    // etc.
+  ],
+  "startDate": "2025-05-10T19:32:11.232Z"
+}

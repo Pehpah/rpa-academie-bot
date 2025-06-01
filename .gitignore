@@ -1,0 +1,42 @@
+# Node.js modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environnement
+.env
+
+# Dossier des fichiers de progression/coaching sauvegardés localement
+progress_files/
+
+# Système
+.DS_Store
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Optional npm cache directory
+.npm/
+
+# Optional REPL history
+.node_repl_history
+
+# MacOS files
+.DS_Store
+
+# Coverage directory used by testing tools
+coverage/
+
+# Express temp files (if any)
+tmp/
+
