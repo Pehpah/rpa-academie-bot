@@ -1,40 +1,46 @@
 require("dotenv").config();
-const { Telegraf } = require("telegraf");
 const express = require("express");
+const { Telegraf } = require("telegraf");
+const path = require("path");
 
-const welcomeHandler = require("./handlers/welcomeHandler");
-const { handleCoaching } = require("./handlers/coachingHandler");
-const unknownHandler = require("./handlers/unknownHandler");
-const coachHandler = require('./handlers/coachHandler');
-coachHandler(bot);
-
-const { cleanOldFiles } = require("./utils/fileCleaner"); // ✅ Import du nettoyeur
-
+// ==== Initialisation ====
 const app = express();
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-// Utilisation des handlers
+// ==== Handlers ====
+const welcomeHandler = require("./handlers/welcomeHandler");
+const { handleCoaching } = require("./handlers/coachingHandler");
+const unknownHandler = require("./handlers/unknownHandler");
+const coachHandler = require("./handlers/coachHandler");
+
+// Appel des handlers
 welcomeHandler(bot);
 unknownHandler(bot);
+coachHandler(bot);
 
-// Commande spécifique coaching
-bot.command('coaching', handleCoaching);
+// ==== Commande de coaching ====
+bot.command("coaching", handleCoaching);
 
-// Nettoyage immédiat au démarrage
-cleanOldFiles();
+// ==== Nettoyage automatique des fichiers de logs ====
+const { cleanOldFiles } = require("./utils/fileCleaner");
+cleanOldFiles(); // au démarrage
 
-// Nettoyage toutes les 24 heures (86 400 000 ms)
 setInterval(() => {
-  console.log("🕒 Nettoyage automatique des fichiers de progression...");
+  console.log("🧹 Nettoyage automatique des fichiers obsolètes...");
   cleanOldFiles();
-}, 24 * 60 * 60 * 1000); // 24h
+}, 24 * 60 * 60 * 1000); // chaque 24h
 
-// Route pour Render
+// ==== Interface de visualisation des logs ====
+const logViewerRoutes = require("./routes/logViewer");
+app.use("/logs", logViewerRoutes);
+
+// ==== Route principale pour Render ====
 const PORT = process.env.PORT || 3000;
 app.get("/", (req, res) => {
-  res.send("✅ RPA Bot est actif !");
+  res.send("✅ RPA Bot est actif et prêt à coacher !");
 });
 
+// ==== Lancement Express + Bot ====
 app.listen(PORT, async () => {
   console.log(`🚀 Serveur Express lancé sur le port ${PORT}`);
   await bot.launch();

@@ -1,13 +1,12 @@
 // services/openai.js
 
 require('dotenv').config();
-const { Configuration, OpenAIApi } = require('openai');
+const OpenAI = require('openai');
 
-const configuration = new Configuration({
+// Initialisation du client OpenAI avec l’API Key
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
-const openai = new OpenAIApi(configuration);
 
 /**
  * Pose une question à GPT-3.5-turbo et retourne la réponse texte.
@@ -17,12 +16,13 @@ const openai = new OpenAIApi(configuration);
  */
 async function askGPT(prompt, options = {}) {
   try {
-    const response = await openai.createChatCompletion({
+    const response = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [
         {
           role: 'system',
-          content: "Tu es un coach entrepreneurial bienveillant. Tu donnes des conseils pratiques, motivants, simples et accessibles à des entrepreneurs africains en début de parcours ou en phase de structuration. Tu parles de manière chaleureuse et humaine, sans jargon compliqué.",
+          content:
+            "Tu es un coach entrepreneurial bienveillant. Tu donnes des conseils pratiques, motivants, simples et accessibles à des entrepreneurs africains en début de parcours ou en phase de structuration. Tu parles de manière chaleureuse et humaine, sans jargon compliqué.",
         },
         { role: 'user', content: prompt },
       ],
@@ -31,10 +31,9 @@ async function askGPT(prompt, options = {}) {
       ...options,
     });
 
-    const answer = response.data.choices[0].message.content.trim();
-    return answer;
+    return response.choices[0].message.content.trim();
   } catch (error) {
-    console.error('❌ Erreur OpenAI:', error.response?.data || error.message);
+    console.error('❌ Erreur OpenAI:', error?.message || error);
     return "⚠️ Désolé, je n'ai plus de conseil pour l’instant. Réessaie plus tard.";
   }
 }

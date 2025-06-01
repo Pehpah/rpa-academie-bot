@@ -1,8 +1,10 @@
+// coachingHandler.js
+
 const fs = require('fs');
 const path = require('path');
 const PDFDocument = require('pdfkit');
-const { askGPT } = require('../services/openai'); // Utilise GPT
 const { format } = require('date-fns');
+const { askGPT } = require('../services/openai'); // SDK OpenAI v4.x
 
 const DATA_DIR = path.join(__dirname, '../data');
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR);
@@ -19,10 +21,9 @@ function getUserPdfPath(userId) {
 }
 
 function loadUserProgress(userId) {
-  const file = getUserFilePath(userId);
-  if (fs.existsSync(file)) {
-    const data = fs.readFileSync(file, 'utf-8');
-    return JSON.parse(data);
+  const filePath = getUserFilePath(userId);
+  if (fs.existsSync(filePath)) {
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
   }
   return null;
 }
@@ -32,15 +33,16 @@ function saveUserProgress(userId, data) {
 }
 
 function deleteUserProgress(userId) {
-  const file = getUserFilePath(userId);
-  const pdf = getUserPdfPath(userId);
-  if (fs.existsSync(file)) fs.unlinkSync(file);
-  if (fs.existsSync(pdf)) fs.unlinkSync(pdf);
+  const jsonPath = getUserFilePath(userId);
+  const pdfPath = getUserPdfPath(userId);
+  if (fs.existsSync(jsonPath)) fs.unlinkSync(jsonPath);
+  if (fs.existsSync(pdfPath)) fs.unlinkSync(pdfPath);
 }
 
 function cleanOldFiles() {
   const files = fs.readdirSync(DATA_DIR);
   const now = Date.now();
+
   files.forEach((file) => {
     const filePath = path.join(DATA_DIR, file);
     const stats = fs.statSync(filePath);
@@ -56,19 +58,19 @@ function getModuleForDay(day) {
   if (day >= 1 && day <= 7) {
     return {
       title: "Mentalité d’entrepreneur",
-      content: "Aujourd’hui, vous allez réfléchir à votre posture d’entrepreneur. Quelle est votre vision à long terme ?"
+      content: "Aujourd’hui, vous allez réfléchir à votre posture d’entrepreneur. Quelle est votre vision à long terme ?",
     };
   }
   if (day >= 8 && day <= 14) {
     return {
       title: "Organisation & Objectifs",
-      content: "Concentrez-vous sur votre manière de planifier. Quels sont vos objectifs SMART de la semaine ?"
+      content: "Concentrez-vous sur votre manière de planifier. Quels sont vos objectifs SMART de la semaine ?",
     };
   }
   if (day >= 15 && day <= 21) {
     return {
       title: "Marché & Clients",
-      content: "Identifiez précisément votre client idéal. Qui est-il ? Où le trouver ?"
+      content: "Identifiez précisément votre client idéal. Qui est-il ? Où le trouver ?",
     };
   }
   return null;
@@ -79,6 +81,7 @@ function generatePdf(userId, progress, ctx) {
     const doc = new PDFDocument();
     const pdfPath = getUserPdfPath(userId);
     const stream = fs.createWriteStream(pdfPath);
+
     doc.pipe(stream);
 
     doc.fontSize(18).text('📘 Résumé de votre Coaching PEHPAH', { align: 'center' });
@@ -90,7 +93,7 @@ function generatePdf(userId, progress, ctx) {
     doc.moveDown();
 
     doc.fontSize(14).text('🗓️ Parcours détaillé :');
-    progress.history.forEach((item, i) => {
+    progress.history.forEach((item) => {
       doc.fontSize(12).text(`Jour ${item.day} : ${item.module} – ${format(new Date(item.date), 'dd/MM/yyyy')}`);
     });
 
@@ -107,7 +110,7 @@ async function handleCoaching(ctx) {
     progress = {
       currentDay: 1,
       history: [],
-      startDate: new Date().toISOString()
+      startDate: new Date().toISOString(),
     };
   }
 
@@ -121,21 +124,21 @@ async function handleCoaching(ctx) {
     return;
   }
 
-  const currentModule = getModuleForDay(progress.currentDay);
-  const intro = `📅 Jour ${progress.currentDay} – *${currentModule.title}*\n\n${currentModule.content}`;
+  const module = getModuleForDay(progress.currentDay);
+  const intro = `📅 Jour ${progress.currentDay} – *${module.title}*\n\n${module.content}`;
   await ctx.replyWithMarkdown(intro);
 
-  // 💡 Conseil du jour via GPT
   try {
-    const conseil = await askGPT(`Donne un conseil utile pour un entrepreneur sur le thème : "${currentModule.title}". Reste concret et bienveillant.`);
+    const conseil = await askGPT(`Donne un conseil utile pour un entrepreneur sur le thème : "${module.title}". Reste concret et bienveillant.`);
     await ctx.reply(`💡 Conseil du jour :\n${conseil}`);
   } catch (err) {
+    console.error('❌ Erreur GPT:', err);
     await ctx.reply("⚠️ Je n'ai pas pu générer le conseil du jour. Réessaie plus tard.");
   }
 
   progress.history.push({
     day: progress.currentDay,
-    module: currentModule.title,
+    module: module.title,
     date: new Date().toISOString(),
   });
 
