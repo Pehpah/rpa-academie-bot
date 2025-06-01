@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const PDFDocument = require('pdfkit');
-const { askGPT } = require('../services/openai');
+const { askGPT } = require('../services/openai'); // Utilise GPT
 const { format } = require('date-fns');
 
 const DATA_DIR = path.join(__dirname, '../data');
@@ -112,7 +112,6 @@ async function handleCoaching(ctx) {
   }
 
   if (progress.currentDay > COACHING_DAYS) {
-    // Coaching terminé, envoi du résumé
     const pdfPath = getUserPdfPath(userId);
     if (!fs.existsSync(pdfPath)) {
       await ctx.reply("📄 Génération de votre résumé, un instant...");
@@ -126,6 +125,14 @@ async function handleCoaching(ctx) {
   const intro = `📅 Jour ${progress.currentDay} – *${currentModule.title}*\n\n${currentModule.content}`;
   await ctx.replyWithMarkdown(intro);
 
+  // 💡 Conseil du jour via GPT
+  try {
+    const conseil = await askGPT(`Donne un conseil utile pour un entrepreneur sur le thème : "${currentModule.title}". Reste concret et bienveillant.`);
+    await ctx.reply(`💡 Conseil du jour :\n${conseil}`);
+  } catch (err) {
+    await ctx.reply("⚠️ Je n'ai pas pu générer le conseil du jour. Réessaie plus tard.");
+  }
+
   progress.history.push({
     day: progress.currentDay,
     module: currentModule.title,
@@ -137,16 +144,12 @@ async function handleCoaching(ctx) {
 }
 
 module.exports = (bot) => {
-  // Commande /coaching
   bot.command('coaching', handleCoaching);
 
-  // Commande /reset
   bot.command('reset', async (ctx) => {
     deleteUserProgress(ctx.from.id);
     await ctx.reply('🔁 Coaching réinitialisé. Tapez /coaching pour recommencer.');
   });
 
-  // Nettoyage quotidien à chaque lancement
   cleanOldFiles();
 };
- 

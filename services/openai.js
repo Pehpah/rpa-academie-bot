@@ -1,4 +1,4 @@
-// services/openaiService.js
+// services/openai.js
 
 require('dotenv').config();
 const { Configuration, OpenAIApi } = require('openai');
@@ -20,7 +20,10 @@ async function askGPT(prompt, options = {}) {
     const response = await openai.createChatCompletion({
       model: 'gpt-3.5-turbo',
       messages: [
-        { role: 'system', content: 'Tu es un coach entrepreneurial qui guide avec bienveillance.' },
+        {
+          role: 'system',
+          content: "Tu es un coach entrepreneurial bienveillant. Tu donnes des conseils pratiques, motivants, simples et accessibles à des entrepreneurs africains en début de parcours ou en phase de structuration. Tu parles de manière chaleureuse et humaine, sans jargon compliqué.",
+        },
         { role: 'user', content: prompt },
       ],
       max_tokens: options.max_tokens || 500,
@@ -31,8 +34,8 @@ async function askGPT(prompt, options = {}) {
     const answer = response.data.choices[0].message.content.trim();
     return answer;
   } catch (error) {
-    console.error('Erreur OpenAI:', error.response ? error.response.data : error.message);
-    return "Désolé, je n'ai pas pu traiter ta demande pour le moment.";
+    console.error('❌ Erreur OpenAI:', error.response?.data || error.message);
+    return "⚠️ Désolé, je n'ai plus de conseil pour l’instant. Réessaie plus tard.";
   }
 }
 
