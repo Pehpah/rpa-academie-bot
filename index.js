@@ -1,4 +1,5 @@
 require("dotenv").config();
+console.log("🤖 BOT_TOKEN loaded:", process.env.BOT_TOKEN);
 const express = require("express");
 const { Telegraf } = require("telegraf");
 const path = require("path");
