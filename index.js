@@ -20,7 +20,8 @@ registerHandler(bot);
 const profilCommand = require("./commandes/profil");
 const modifierProfilCommand = require("./commandes/modifier");
 const redemarrerCommand = require("./commandes/redemarrer");
-const pehpahCommand = require("./commandes/pehpah"); // 📌 Ajout de la commande /pehpah
+const pehpahCommand = require("./commandes/pehpah");
+const activerCommand = require("./commandes/activer"); // ✅ Ajout commande activer
 
 // ==== Utilitaires ====
 const { cleanOldFiles } = require("./utils/fileCleaner");
@@ -34,7 +35,11 @@ bot.command("coach", coachBotHandler.handleCoaching);
 bot.command("profil", profilCommand);
 bot.command("modifier_profil", modifierProfilCommand);
 bot.command("redemarrer", redemarrerCommand);
-bot.command("pehpah", pehpahCommand); // 📌 Activation de la commande personnalisée PEHPAH
+bot.command("pehpah", pehpahCommand);
+bot.command("activer", (ctx) => activerCommand(bot, ctx)); // ✅ Activation
+
+// ✅ Réponse au bouton "Démarrer le coaching du jour"
+bot.action("start_coaching", (ctx) => coachBotHandler.handleCoaching(ctx));
 
 // ==== Cron Nettoyage fichiers ====
 cleanOldFiles(); // au démarrage
