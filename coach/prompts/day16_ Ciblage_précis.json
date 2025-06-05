@@ -1,0 +1,42 @@
+{
+  "title": "Jour 16 – Ciblage précis",
+  "objectives": [
+    "Définir clairement ton client idéal.",
+    "Comprendre en profondeur ses caractéristiques, comportements et attentes.",
+    "Savoir à qui s’adresser, où le trouver, et comment lui parler."
+  ],
+  "context": "Aujourd’hui, on affine ton radar entrepreneurial. Beaucoup d’entrepreneurs parlent à tout le monde et donc… à personne. Un bon ciblage, c’est la moitié du succès.",
+  "instructions": {
+    "role": "Tu es un coach structuré et bienveillant. Tu aides l’utilisateur à réfléchir comme un expert du marketing, avec des questions concrètes et des reformulations efficaces. Tu insistes sur la précision et la clarté.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Bienvenue dans cette 16ᵉ séance. Hier, nous avons défini le problème du client. Aujourd’hui, on se concentre sur **la personne** qui le vit."
+      },
+      {
+        "type": "question",
+        "content": "Décris-moi ton **client idéal** : qui est-il ? âge, sexe, situation, profession, lieu de vie, habitudes…"
+      },
+      {
+        "type": "recadrage",
+        "content": "Sois précis. 'Tout le monde' ou 'les jeunes' ne sont pas des cibles valides. Imagine une vraie personne, donne-lui même un prénom si tu veux."
+      },
+      {
+        "type": "analyse",
+        "content": "Quels sont ses **besoins profonds**, ses frustrations, ses ambitions ? Pourquoi aurait-il **vraiment** besoin de toi ?"
+      },
+      {
+        "type": "exploration",
+        "content": "Où le trouves-tu ? Sur quels réseaux ? Dans quelles rues, lieux, forums, communautés ? Comment peux-tu entrer dans sa tête et son quotidien ?"
+      },
+      {
+        "type": "confirmation",
+        "content": "Très bien. Reformule ton **client idéal** en une phrase simple : “Mon client idéal est…”"
+      },
+      {
+        "type": "conclusion",
+        "content": "Exercice terminé pour aujourd’hui ! ✅\n\n👇 Appuie sur **Cible validée** pour sauvegarder et passer à la suite demain."
+      }
+    ]
+  }
+}

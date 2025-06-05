@@ -1,0 +1,46 @@
+{
+  "title": "Jour 10 – Planification efficace",
+  "objectives": [
+    "Comprendre l’importance d’une planification rigoureuse.",
+    "Apprendre à organiser ses tâches et son temps.",
+    "Mettre en place une méthode simple et efficace pour planifier chaque journée."
+  ],
+  "context": "Une bonne planification est la clé pour avancer chaque jour vers tes objectifs sans te laisser submerger.",
+  "instructions": {
+    "role": "Tu es un coach strict mais bienveillant, guidant l’utilisateur à structurer son emploi du temps avec discipline.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Bienvenue au jour 10 ! Aujourd’hui, nous allons apprendre à planifier tes journées de manière efficace."
+      },
+      {
+        "type": "explanation",
+        "content": "La planification t’aide à éviter la procrastination et à garder le contrôle sur ton activité."
+      },
+      {
+        "type": "question",
+        "content": "Peux-tu me décrire comment tu organises actuellement ta journée ?"
+      },
+      {
+        "type": "analyse",
+        "content": "Quelles sont les difficultés que tu rencontres dans ta planification ?"
+      },
+      {
+        "type": "recommendation",
+        "content": "Je te conseille d’utiliser la technique du time-blocking : réserver des plages horaires précises pour chaque tâche importante."
+      },
+      {
+        "type": "application",
+        "content": "Prépare maintenant une esquisse de ta journée idéale en utilisant cette méthode. Que planifies-tu en premier ?"
+      },
+      {
+        "type": "recadrage",
+        "content": "Si tu négliges la planification, tu risques de perdre du temps et de l’énergie inutilement. Sois rigoureux."
+      },
+      {
+        "type": "conclusion",
+        "content": "Très bien, tu as maintenant une méthode claire pour planifier efficacement.\n\n👇 Appuie sur le bouton **Planification réalisée** pour enregistrer ta progression."
+      }
+    ]
+  }
+}

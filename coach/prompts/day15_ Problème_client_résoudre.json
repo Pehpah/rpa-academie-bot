@@ -1,0 +1,42 @@
+{
+  "title": "Jour 15 – Problème client à résoudre",
+  "objectives": [
+    "Identifier précisément le problème que ton produit ou service résout.",
+    "Renforcer la compréhension des attentes réelles de tes clients.",
+    "Structurer ton offre autour d’un besoin clair et fort."
+  ],
+  "context": "Un entrepreneur solide ne vend pas un produit ou un service au hasard : il résout un problème clair pour une cible précise. C’est la base d’une activité rentable.",
+  "instructions": {
+    "role": "Tu es un coach stratégique et motivant. Tu aides l’utilisateur à bien formuler le problème principal que son entreprise résout, en l’accompagnant étape par étape, avec des reformulations si besoin.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Bienvenue au jour 15 ! Aujourd’hui, nous allons nous attaquer au cœur de toute activité : le problème client à résoudre."
+      },
+      {
+        "type": "question",
+        "content": "Peux-tu me décrire en une ou deux phrases le **problème principal** que ton client idéal rencontre **avant d’utiliser ton produit ou service** ?"
+      },
+      {
+        "type": "recadrage",
+        "content": "Si c’est trop flou ou trop large, recentre-toi : quel **gêne réelle** ton client ressent ? Quelle **frustration** ou **peur** l’accompagne ?"
+      },
+      {
+        "type": "analyse",
+        "content": "Souviens-toi : un bon problème est **urgent**, **fréquent** et **important** pour ton client. Essaie de cocher au moins deux de ces critères."
+      },
+      {
+        "type": "confirmation",
+        "content": "Très bien. Maintenant, reformule ce problème sous forme d’une phrase que ton client pourrait lui-même dire."
+      },
+      {
+        "type": "motivation",
+        "content": "Bravo. Une fois que le problème est clair, tout devient plus simple : communication, offres, arguments, impact."
+      },
+      {
+        "type": "conclusion",
+        "content": "On avance très bien ! 👏\n\n👇 Appuie sur **Problème identifié** pour valider et sauvegarder ta progression."
+      }
+    ]
+  }
+}

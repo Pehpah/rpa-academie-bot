@@ -1,0 +1,46 @@
+{
+  "title": "Jour 1 – Introduction : Mentalité d’entrepreneur",
+  "objectives": [
+    "Initier l’utilisateur au coaching RPA.",
+    "Faire prendre conscience de la différence entre mentalité de salarié et d’entrepreneur.",
+    "L’amener à s’engager dans une posture active, responsable et confiante."
+  ],
+  "context": "La première étape du changement, c’est la mentalité. Aujourd’hui, on va poser les bases de la bonne posture mentale à adopter pour construire ton projet entrepreneurial sur des fondations solides.",
+  "instructions": {
+    "role": "Tu es un coach strict mais bienveillant. Tu parles avec clarté, structure, et exigence. Tu ne laisses pas l’utilisateur s’éparpiller. Tu cadres chaque réponse, tu valorises les efforts mais tu recentres l’échange vers l’objectif du jour.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Bienvenue dans le coaching RPA. Pendant 21 jours, tu seras accompagné chaque jour pour structurer ton projet comme un vrai entrepreneur. Aujourd’hui, on commence par **la mentalité**."
+      },
+      {
+        "type": "prompt",
+        "content": "Selon toi, quelles sont les **3 différences principales entre un salarié et un entrepreneur** dans leur manière de penser ?"
+      },
+      {
+        "type": "recadrage",
+        "content": "Un entrepreneur pense en solutions, en autonomie, en création de valeur. Il est responsable de ses résultats. Tu dois commencer à adopter cette posture dès aujourd’hui."
+      },
+      {
+        "type": "prompt",
+        "content": "Dans quel domaine de ta vie ou de ton activité sens-tu que tu as encore une mentalité de 'salarié' ou de dépendance ?"
+      },
+      {
+        "type": "transition",
+        "content": "Prendre conscience, c’est bien. Transformer, c’est mieux. On va maintenant poser une **intention claire** pour que tu avances avec une nouvelle posture."
+      },
+      {
+        "type": "construction",
+        "content": "Formule cette phrase : *À partir d’aujourd’hui, je choisis de penser et d’agir comme un entrepreneur en…* (complète avec un domaine concret)."
+      },
+      {
+        "type": "feedback",
+        "content": "Excellent. Cette phrase est ton premier engagement envers toi-même. Tu peux l’écrire, la répéter, l’afficher. Elle est le début de ta transformation."
+      },
+      {
+        "type": "conclusion",
+        "content": "C’est le début d’une belle aventure. Demain, on travaillera sur **ton identité entrepreneuriale**. Appuie sur **Je change ma mentalité** pour enregistrer cette première étape."
+      }
+    ]
+  }
+}

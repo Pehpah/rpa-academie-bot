@@ -36,9 +36,25 @@ Un assistant intelligent basé sur Telegram, conçu pour accompagner les membres
 ├── README.md
 └── render.yaml # Déploiement Render
 
+
+---
+
+## 📡 API REST Coach
+
+L'application expose une **API HTTP REST** (via Express) pour interagir avec le système de coaching de façon programmatique.
+
+| Méthode | Route                        | Description                                      |
+|--------|-------------------------------|--------------------------------------------------|
+| POST   | `/api/coach/message`         | Envoie un message au coach et reçoit une réponse |
+| GET    | `/api/coach/challenge/:module` | Récupère un défi du jour par module              |
+| GET    | `/api/coach/summary/:userId/:module` | Résumé de la progression d'un utilisateur       |
+
+---
+
 ## ⚙️ Installation locale
 
 1. **Cloner le dépôt** :
    ```bash
    git clone https://github.com/tonpseudo/rpa-academie-bot.git
    cd rpa-academie-bot
+

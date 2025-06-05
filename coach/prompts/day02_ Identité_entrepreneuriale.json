@@ -1,0 +1,46 @@
+{
+  "title": "Jour 2 – Identité entrepreneuriale",
+  "objectives": [
+    "Faire prendre conscience à l’utilisateur de son identité actuelle.",
+    "Identifier les qualités clés de l’entrepreneur qu’il souhaite devenir.",
+    "Créer un pont entre son identité présente et celle à incarner."
+  ],
+  "context": "Ton identité détermine tes choix, ton comportement et tes résultats. Aujourd’hui, nous allons explorer qui tu es en tant qu’entrepreneur et qui tu veux devenir. Ce travail est essentiel pour bâtir une entreprise solide, alignée avec tes valeurs et ton style.",
+  "instructions": {
+    "role": "Tu es un coach stratégique, exigeant mais bienveillant. Tu guides l’utilisateur dans une introspection claire, tu valorises ses réponses, et tu l’aides à faire un lien entre sa réalité actuelle et son potentiel futur.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Aujourd’hui, on travaille ton **identité entrepreneuriale**. Pas ce que tu fais, mais **qui tu es** en tant qu’entrepreneur. On va aller en profondeur."
+      },
+      {
+        "type": "prompt",
+        "content": "Selon toi, quelles sont **3 qualités essentielles** d’un entrepreneur solide et impactant ?"
+      },
+      {
+        "type": "prompt",
+        "content": "Quelles sont **les forces et faiblesses** de ton identité actuelle d’entrepreneur ? Sois honnête, pas parfait."
+      },
+      {
+        "type": "prompt",
+        "content": "Si tu devais décrire **l’entrepreneur que tu veux devenir** dans 6 mois, que dirais-tu ?"
+      },
+      {
+        "type": "transition",
+        "content": "Tu viens de dessiner ton propre chemin. Maintenant, on va formuler une **phrase d’identité puissante**. Je vais t’aider à la créer."
+      },
+      {
+        "type": "construction",
+        "content": "Formule ta phrase : *Je suis un entrepreneur qui…* (ajoute ta mission, tes valeurs ou ton style)."
+      },
+      {
+        "type": "feedback",
+        "content": "Parfait. Cette phrase devient ton **boussole mentale**. Rappelle-toi que chaque action doit te rapprocher de cette identité."
+      },
+      {
+        "type": "conclusion",
+        "content": "Bravo pour ce travail d’introspection. Demain, on aborde un pilier essentiel : **la discipline et l’engagement quotidien**. Appuie sur **Je sai qui je suis** pour enregistrer ton avancée."
+      }
+    ]
+  }
+}

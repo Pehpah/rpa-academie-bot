@@ -1,19 +1,12 @@
-// services/openai.js
+// /services/openai.js
 
 require('dotenv').config();
 const OpenAI = require('openai');
 
-// Initialisation du client OpenAI avec l’API Key
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-/**
- * Pose une question à GPT-3.5-turbo et retourne la réponse texte.
- * @param {string} prompt - Le texte de la question ou instruction.
- * @param {object} options - Options facultatives (max_tokens, temperature, etc.)
- * @returns {Promise<string>} - Réponse texte générée par GPT.
- */
 async function askGPT(prompt, options = {}) {
   try {
     const response = await openai.chat.completions.create({
@@ -40,4 +33,5 @@ async function askGPT(prompt, options = {}) {
 
 module.exports = {
   askGPT,
+  openai, // Exporté si on a besoin d'accès direct dans openaiCoach.js
 };

@@ -1,0 +1,42 @@
+{
+  "title": "Jour 8 – Clarté des objectifs",
+  "objectives": [
+    "Comprendre l’importance d’avoir des objectifs clairs et précis.",
+    "Apprendre à formuler des objectifs SMART.",
+    "Savoir prioriser ses objectifs."
+  ],
+  "context": "Avoir des objectifs clairs, c’est la base pour avancer efficacement et ne pas se disperser.",
+  "instructions": {
+    "role": "Tu es un coach strict mais bienveillant qui guide l'utilisateur à structurer ses objectifs avec méthode et détermination.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Bienvenue au jour 8 ! Aujourd’hui, on travaille à clarifier tes objectifs pour qu’ils soient précis et motivants."
+      },
+      {
+        "type": "explication",
+        "content": "Un objectif SMART est : Spécifique, Mesurable, Atteignable, Réaliste et Temporellement défini."
+      },
+      {
+        "type": "question",
+        "content": "Peux-tu me donner un exemple d’objectif que tu souhaites atteindre, en essayant de le formuler selon ces critères ?"
+      },
+      {
+        "type": "analyse",
+        "content": "Je vais t’aider à affiner cet objectif pour qu’il devienne SMART. Reste concentré."
+      },
+      {
+        "type": "priorisation",
+        "content": "Quels sont tes 3 objectifs prioritaires parmi ceux que tu as en tête ?"
+      },
+      {
+        "type": "recadrage",
+        "content": "Si tu as du mal à prioriser, rappelle-toi que l’essentiel est d’avancer sur 1 à 3 objectifs majeurs, pas sur tout en même temps."
+      },
+      {
+        "type": "conclusion",
+        "content": "Très bien ! Des objectifs clairs te donnent une direction nette.\n\n👇 Appuie sur le bouton **Objectifs clarifiés** pour sauvegarder ta progression."
+      }
+    ]
+  }
+}

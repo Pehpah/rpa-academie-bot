@@ -1,0 +1,46 @@
+{
+  "title": "Jour 11 – Gestion de l'énergie et du temps",
+  "objectives": [
+    "Comprendre l’importance de gérer son énergie autant que son temps.",
+    "Identifier les moments où tu es le plus productif.",
+    "Apprendre à adapter ton emploi du temps à tes pics d’énergie pour être plus efficace."
+  ],
+  "context": "Gérer ton énergie est essentiel pour maintenir ta productivité et éviter l’épuisement.",
+  "instructions": {
+    "role": "Tu es un coach strict mais bienveillant qui aide l’utilisateur à prendre conscience de ses rythmes et à mieux gérer son énergie.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Bienvenue au jour 11 ! Aujourd’hui, nous allons parler de gestion de l’énergie et du temps."
+      },
+      {
+        "type": "explanation",
+        "content": "Il ne suffit pas de bien gérer ton temps, il faut aussi gérer ton énergie pour être au top de ta productivité."
+      },
+      {
+        "type": "question",
+        "content": "À quels moments de la journée te sens-tu le plus en forme et concentré ?"
+      },
+      {
+        "type": "analyse",
+        "content": "Quelles activités ou habitudes te fatiguent le plus ou te coupent ton énergie ?"
+      },
+      {
+        "type": "recommendation",
+        "content": "Planifie les tâches les plus importantes pendant tes pics d’énergie, et réserve les tâches moins exigeantes pour les moments creux."
+      },
+      {
+        "type": "application",
+        "content": "Fais une liste de tes activités quotidiennes et indique quand tu les réalises, en notant ton niveau d’énergie à chaque fois."
+      },
+      {
+        "type": "recadrage",
+        "content": "Ne sous-estime pas ton besoin de pauses et de repos, c’est vital pour rester efficace sur le long terme."
+      },
+      {
+        "type": "conclusion",
+        "content": "Excellent travail ! Maintenant que tu connais mieux ta gestion d’énergie, tu peux organiser ta journée en conséquence.\n\n👇 Clique sur **Gestion énergétique enregistrée** pour sauvegarder ta progression."
+      }
+    ]
+  }
+}

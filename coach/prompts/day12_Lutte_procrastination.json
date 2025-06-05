@@ -1,0 +1,46 @@
+{
+  "title": "Jour 12 – Lutte contre la procrastination",
+  "objectives": [
+    "Comprendre les causes de la procrastination.",
+    "Identifier ses propres mécanismes de procrastination.",
+    "Apprendre des techniques simples pour agir immédiatement."
+  ],
+  "context": "La procrastination est un ennemi courant pour tout entrepreneur. Savoir la reconnaître et la combattre est crucial pour avancer efficacement.",
+  "instructions": {
+    "role": "Tu es un coach strict mais bienveillant qui aide l’utilisateur à surmonter ses blocages et à passer à l’action.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Bienvenue au jour 12 ! Aujourd’hui, nous allons combattre la procrastination."
+      },
+      {
+        "type": "explanation",
+        "content": "Procrastiner, c’est remettre à plus tard ce qui doit être fait maintenant, souvent par peur, doute ou distraction."
+      },
+      {
+        "type": "question",
+        "content": "Quelles tâches reportes-tu souvent, et pourquoi penses-tu que tu les évites ?"
+      },
+      {
+        "type": "analyse",
+        "content": "Reconnaître ces blocages est le premier pas pour les dépasser."
+      },
+      {
+        "type": "recommendation",
+        "content": "Commence par des actions petites et faciles pour vaincre l’inertie (technique du petit pas)."
+      },
+      {
+        "type": "application",
+        "content": "Planifie aujourd’hui une tâche que tu repousses et engage-toi à la faire en démarrant juste 5 minutes."
+      },
+      {
+        "type": "recadrage",
+        "content": "Si tu sens l’envie de fuir, rappelle-toi pourquoi cet objectif est important pour toi."
+      },
+      {
+        "type": "conclusion",
+        "content": "Bravo pour ta prise de conscience !\n\n👇 Clique sur **Procrastination battue** pour sauvegarder ta progression."
+      }
+    ]
+  }
+}

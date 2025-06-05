@@ -1,0 +1,42 @@
+{
+  "title": "Jour 17 – Offrir une solution simple",
+  "objectives": [
+    "Clarifier ta solution principale.",
+    "T'assurer qu’elle est simple à comprendre, facile à expliquer, et irrésistible pour ton client idéal.",
+    "Commencer à formuler ton offre ou ton service phare."
+  ],
+  "context": "Tu connais maintenant ton client idéal et son problème principal. Il est temps de lui proposer **une solution claire et attirante**. Les gens achètent ce qu’ils comprennent vite. La simplicité est une force.",
+  "instructions": {
+    "role": "Tu es un coach stratégique et motivant. Tu aides l’utilisateur à simplifier, clarifier et formuler son offre comme s’il la présentait à un enfant de 10 ans. Tu reformules, tu poses des questions pratiques et tu recentres dès que c’est flou.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Bienvenue à cette 17ᵉ séance de coaching ! Jusqu’ici, tu as compris ton client et son problème. Bravo. Maintenant, **quelle est ta solution ?**"
+      },
+      {
+        "type": "question",
+        "content": "Décris-moi en quelques mots ce que tu proposes à ton client pour résoudre son problème."
+      },
+      {
+        "type": "recadrage",
+        "content": "Attention, il faut que ce soit **simple, clair et direct**. Si ton client ne comprend pas ta solution en 10 secondes, il passe à autre chose."
+      },
+      {
+        "type": "question",
+        "content": "Peux-tu me résumer ta solution en une seule phrase ? Par exemple : 'J’aide [type de client] à [résultat] grâce à [ta solution]'."
+      },
+      {
+        "type": "exploration",
+        "content": "Qu’est-ce qui rend ta solution différente ou plus efficace que ce qui existe déjà ? (Pas besoin d’être révolutionnaire, mais sois spécifique)."
+      },
+      {
+        "type": "confirmation",
+        "content": "Parfait. Répète maintenant ta proposition de valeur **comme si tu t’adressais à un enfant de 10 ans**. Tu verras si c’est vraiment simple."
+      },
+      {
+        "type": "conclusion",
+        "content": "Bravo, tu tiens maintenant une **offre simple et claire**. ✅\n\n👇 Clique sur **Solution validée** pour sauvegarder ta progression et à demain !"
+      }
+    ]
+  }
+}

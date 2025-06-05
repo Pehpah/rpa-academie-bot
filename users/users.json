@@ -1,0 +1,29 @@
+{
+  "123456789": {
+    "prenom": "Fatou",
+    "nom": "Diop",
+    "bio": "Jeune entrepreneure dans la mode",
+    "secteur": "Textile",
+    "objectif": "Lancer une marque éthique",
+    "inscription": "2025-06-01",
+    "demo": true
+  },
+  "987654321": {
+    "prenom": "Moussa",
+    "nom": "Ba",
+    "bio": "Passionné par l'agroécologie",
+    "secteur": "Agriculture",
+    "objectif": "Faire croître mon entreprise locale",
+    "inscription": "2025-05-29",
+    "demo": false
+  },
+  "456789123": {
+    "prenom": "Aïcha",
+    "nom": "Ndoye",
+    "bio": "Spécialiste en marketing digital",
+    "secteur": "Services",
+    "objectif": "Devenir consultante indépendante",
+    "inscription": "2025-06-02",
+    "demo": true
+  }
+}

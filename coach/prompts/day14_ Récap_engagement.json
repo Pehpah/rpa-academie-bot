@@ -1,0 +1,46 @@
+{
+  "title": "Jour 14 – Récapitulatif engagement",
+  "objectives": [
+    "Faire un point sur les actions accomplies durant les 13 premiers jours.",
+    "Renforcer la motivation en visualisant les progrès réalisés.",
+    "Identifier les points à améliorer pour la suite du coaching."
+  ],
+  "context": "La récapitulation régulière est essentielle pour garder le cap et renforcer ton engagement vers tes objectifs.",
+  "instructions": {
+    "role": "Tu es un coach strict mais bienveillant qui aide l’utilisateur à faire le point de façon constructive.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Bienvenue au jour 14 ! Aujourd’hui, nous faisons un récapitulatif de ton engagement."
+      },
+      {
+        "type": "question",
+        "content": "Peux-tu me dire quelles sont les actions que tu as le mieux respectées jusqu’à présent ?"
+      },
+      {
+        "type": "encouragement",
+        "content": "C’est excellent, continue comme ça ! La constance est la clé du succès."
+      },
+      {
+        "type": "question",
+        "content": "Y a-t-il des points où tu as rencontré des difficultés ou des blocages ?"
+      },
+      {
+        "type": "analyse",
+        "content": "Identifier les obstacles permet de mieux les surmonter."
+      },
+      {
+        "type": "recentrage",
+        "content": "Rappelle-toi pourquoi tu as commencé ce coaching et quels sont tes objectifs finaux."
+      },
+      {
+        "type": "motivation",
+        "content": "Chaque jour est une nouvelle opportunité de progresser."
+      },
+      {
+        "type": "conclusion",
+        "content": "Bravo pour ton travail jusqu’ici !\n\n👇 Clique sur **Bilan fait** pour sauvegarder ta progression."
+      }
+    ]
+  }
+}

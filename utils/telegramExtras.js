@@ -1,5 +1,3 @@
-// utils/telegramExtras.js
-
 const { Markup } = require('telegraf');
 const fs = require('fs');
 const path = require('path');
@@ -84,6 +82,51 @@ function getUserTimezone(ctx) {
   return ctx.from?.language_code || 'fr';
 }
 
+// 9. Menu dynamique (toggle avec bouton)
+const menuContent = [
+  [{ text: '🎯 Coach', callback_data: 'menu_coach' }],
+  [{ text: '📚 Modules', callback_data: 'menu_modules' }],
+  [{ text: '📝 Inscription', callback_data: 'menu_inscription' }],
+  [{ text: '💎 Premium', callback_data: 'menu_premium' }],
+  [{ text: '❓ FAQ', callback_data: 'menu_faq' }],
+  [{ text: '📩 Contact', callback_data: 'menu_contact' }],
+  [{ text: '❌ Fermer le menu', callback_data: 'hide_menu' }]
+];
+
+async function sendMenuButton(ctx) {
+  try {
+    await ctx.reply('📋 Ouvre le menu :', {
+      reply_markup: Markup.inlineKeyboard([
+        [{ text: '📋 Menu', callback_data: 'toggle_menu' }]
+      ])
+    });
+  } catch (error) {
+    console.error('❌ Erreur bouton menu :', error.message);
+  }
+}
+
+async function openMenu(ctx) {
+  try {
+    await ctx.editMessageReplyMarkup(
+      Markup.inlineKeyboard(menuContent).reply_markup
+    );
+  } catch (error) {
+    console.error('❌ Erreur ouverture menu :', error.message);
+  }
+}
+
+async function closeMenu(ctx) {
+  try {
+    await ctx.editMessageReplyMarkup(
+      Markup.inlineKeyboard([
+        [{ text: '📋 Menu', callback_data: 'toggle_menu' }]
+      ]).reply_markup
+    );
+  } catch (error) {
+    console.error('❌ Erreur fermeture menu :', error.message);
+  }
+}
+
 module.exports = {
   sendDocument,
   editMessage,
@@ -93,5 +136,8 @@ module.exports = {
   getFormattedName,
   getTimestamp,
   paginateButtons,
-  getUserTimezone
+  getUserTimezone,
+  sendMenuButton,
+  openMenu,
+  closeMenu
 };

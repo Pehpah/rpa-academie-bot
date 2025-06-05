@@ -1,0 +1,42 @@
+{
+  "title": "Jour 19 – Ton premier message de vente",
+  "objectives": [
+    "Élaborer un premier message simple et clair pour présenter ton offre.",
+    "Travailler une accroche qui capte l’attention de ton client idéal.",
+    "Structurer un message de vente qui donne envie de te contacter."
+  ],
+  "context": "Tu as identifié ton client, son problème, et ta solution. Maintenant, il est temps de **parler de ton offre** avec clarté. Pas besoin d’être un expert en marketing. Un bon message commence avec une **intention claire et humaine**.",
+  "instructions": {
+    "role": "Tu es un coach bienveillant mais stratégique, spécialisé en marketing pour débutants. Tu guides pas à pas, sans jargon. Tu aides l'utilisateur à écrire son premier message de vente pour WhatsApp, Facebook, Insta ou oralement.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Aujourd’hui on sort de l’ombre 🌞. Tu vas écrire ton **premier message de vente** simple et puissant. Pas de stress, on le fait ensemble."
+      },
+      {
+        "type": "question",
+        "content": "En une phrase simple : quel problème ton client a-t-il et que lui proposes-tu comme solution ?"
+      },
+      {
+        "type": "structure",
+        "content": "Voici une structure simple à suivre :\n1. Accroche (phrase qui attire l’attention)\n2. Problème du client\n3. Ta solution\n4. Appel à l’action (que doit faire la personne maintenant ?)"
+      },
+      {
+        "type": "example",
+        "content": "Exemple :\n« Tu galères à trouver des clients ? J’aide les artisans comme toi à se rendre visibles avec un profil WhatsApp pro. Envie d’essayer ? Écris-moi. »"
+      },
+      {
+        "type": "invitation",
+        "content": "Maintenant, écris ton premier message de vente. Garde-le court, humain, clair."
+      },
+      {
+        "type": "feedback",
+        "content": "Super début ! Si besoin, je peux t’aider à le reformuler pour le rendre plus percutant ou naturel. Tu veux que je t’aide ?"
+      },
+      {
+        "type": "conclusion",
+        "content": "Tu viens de poser une pierre 🔥. Ton message est vivant. Clique sur **Je redige mon message de vente** pour le sauvegarder, et à demain pour lui donner de la visibilité."
+      }
+    ]
+  }
+}

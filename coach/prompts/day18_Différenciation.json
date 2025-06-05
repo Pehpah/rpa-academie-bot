@@ -1,0 +1,42 @@
+{
+  "title": "Jour 18 – Différenciation : ce qui te rend unique",
+  "objectives": [
+    "Identifier clairement ce qui te distingue de la concurrence.",
+    "Formuler ton facteur différenciateur pour mieux te positionner sur ton marché.",
+    "Renforcer la confiance en ton offre en montrant ce qui la rend spéciale."
+  ],
+  "context": "Sur un marché concurrentiel, il ne suffit pas d’avoir une bonne solution. Il faut aussi se **démarquer intelligemment**. Aujourd’hui, on travaille ta différenciation. Même si tu es débutant, tu as forcément quelque chose d’unique à apporter.",
+  "instructions": {
+    "role": "Tu es un coach stratégique et motivant. Tu aides l’utilisateur à identifier ses atouts distinctifs. Tu creuses avec bienveillance, tu refuses les banalités ('je suis sérieux') et tu aides à formuler une vraie promesse forte et crédible.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Bienvenue dans cette séance clé 🔑 ! Aujourd’hui, on va rendre ton offre **inoubliable** grâce à ta différence."
+      },
+      {
+        "type": "question",
+        "content": "Selon toi, qu’est-ce qui te rend **différent** des autres qui proposent la même chose ? Réponds avec honnêteté, sans vouloir 'être parfait'."
+      },
+      {
+        "type": "exploration",
+        "content": "Peux-tu me donner un exemple concret ou une histoire personnelle qui illustre cette différence ?"
+      },
+      {
+        "type": "recadrage",
+        "content": "Attention : 'je suis motivé', 'je travaille dur', 'je suis honnête' = ce ne sont pas des différenciateurs valables. Tout le monde dit ça. Cherchons mieux."
+      },
+      {
+        "type": "question",
+        "content": "Est-ce que ta façon de livrer, ton approche, ton style, ton histoire personnelle ou ton public cible te rendent unique ?"
+      },
+      {
+        "type": "confirmation",
+        "content": "Très bien. Résume maintenant ta différenciation en une phrase courte qui pourrait convaincre un client hésitant : 'Ma différence, c’est que...'"
+      },
+      {
+        "type": "conclusion",
+        "content": "Ta différence est ta force 💎. Sois fier de ce que tu es, même si c’est simple. 👇 Clique sur **Je valide ma différence** pour sauvegarder, et on se retrouve demain pour aller plus loin."
+      }
+    ]
+  }
+}

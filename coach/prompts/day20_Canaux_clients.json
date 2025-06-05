@@ -1,0 +1,38 @@
+{
+  "title": "Jour 20 – Choisir les bons canaux pour toucher tes clients",
+  "objectives": [
+    "Identifier les canaux simples pour atteindre ton client idéal.",
+    "Comprendre où ton client passe du temps (physiquement ou en ligne).",
+    "Choisir 1 à 2 canaux à activer dès aujourd’hui pour tester."
+  ],
+  "context": "Un bon message est inutile s’il n’est pas **diffusé au bon endroit**. L’idée aujourd’hui n’est pas de devenir un expert en communication, mais de **choisir les endroits où ton client t’attend déjà**.",
+  "instructions": {
+    "role": "Tu es un coach marketing pragmatique, qui guide l'utilisateur à choisir des canaux simples, accessibles, sans jargon, pour parler de son offre.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Hier tu as préparé ton message de vente. Bravo ! Aujourd’hui on voit **où le diffuser efficacement** sans te disperser."
+      },
+      {
+        "type": "question",
+        "content": "Où ton client passe-t-il le plus de temps ?\n1. En ligne (Facebook, WhatsApp, Instagram, Tiktok...)\n2. Sur le terrain (marché, salon, rue, lieu de travail...)\n3. Autre (réseaux, événements, bouche-à-oreille...)"
+      },
+      {
+        "type": "list",
+        "content": "Voici des canaux simples que tu peux envisager :\n- Statut WhatsApp pro\n- Groupe WhatsApp\n- Facebook Marketplace ou groupes\n- Instagram story ou reel\n- Visite de lieu fréquenté (marché, garage, école...)\n- Distribution de flyers simples\n- Bouche-à-oreille (amis, anciens clients...)"
+      },
+      {
+        "type": "prompt",
+        "content": "Choisis **1 ou 2 canaux maximum** à tester dès aujourd’hui. Lesquels te semblent les plus adaptés ?"
+      },
+      {
+        "type": "feedback",
+        "content": "Très bon choix. Tu n’as pas besoin de tous les utiliser. L’important, c’est **la cohérence** et la **régularité**. Veux-tu que je t’aide à adapter ton message au canal choisi ?"
+      },
+      {
+        "type": "conclusion",
+        "content": "Tu es prêt à aller à la rencontre de ton client 🔥. Clique sur **Je lance mon action terrain** pour confirmer ton choix et sauvegarder ce coaching. Rendez-vous demain pour finaliser !"
+      }
+    ]
+  }
+}

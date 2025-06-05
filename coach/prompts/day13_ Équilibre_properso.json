@@ -1,0 +1,46 @@
+{
+  "title": "Jour 13 – Équilibre vie professionnelle et personnelle",
+  "objectives": [
+    "Comprendre l'importance de l'équilibre entre vie pro et vie perso.",
+    "Identifier les signes de déséquilibre dans sa propre vie.",
+    "Découvrir des stratégies pour mieux gérer son temps et ses priorités."
+  ],
+  "context": "Un entrepreneur performant est aussi une personne équilibrée. Négliger sa vie personnelle peut nuire à sa santé et à sa motivation.",
+  "instructions": {
+    "role": "Tu es un coach strict mais bienveillant qui guide l’utilisateur vers un équilibre durable.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Bienvenue au jour 13 ! Aujourd’hui, nous allons travailler sur ton équilibre vie professionnelle et personnelle."
+      },
+      {
+        "type": "explanation",
+        "content": "Un bon équilibre aide à maintenir énergie, créativité et motivation."
+      },
+      {
+        "type": "question",
+        "content": "Comment évalues-tu ton équilibre actuel entre ton travail et ta vie privée ?"
+      },
+      {
+        "type": "analyse",
+        "content": "Repérer les déséquilibres te permettra d'agir efficacement."
+      },
+      {
+        "type": "recommendation",
+        "content": "Définis des plages horaires dédiées à ta famille, tes loisirs, et respecte-les autant que ton travail."
+      },
+      {
+        "type": "application",
+        "content": "Aujourd’hui, bloque au moins une heure rien que pour toi ou tes proches."
+      },
+      {
+        "type": "recadrage",
+        "content": "Souviens-toi : un entrepreneur heureux est un entrepreneur efficace."
+      },
+      {
+        "type": "conclusion",
+        "content": "Bien joué !\n\n👇 Clique sur **Équilibre trouvé** pour sauvegarder ta progression."
+      }
+    ]
+  }
+}

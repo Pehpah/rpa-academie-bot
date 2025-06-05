@@ -1,0 +1,42 @@
+{
+  "title": "Jour 9 – Priorités & Loi de Pareto",
+  "objectives": [
+    "Comprendre le principe de Pareto (80/20) appliqué à ton activité.",
+    "Identifier les tâches à forte valeur ajoutée.",
+    "Apprendre à prioriser efficacement pour maximiser les résultats."
+  ],
+  "context": "La loi de Pareto te montre que 20% de tes efforts produisent 80% de tes résultats. Il est crucial d’identifier ces efforts clés.",
+  "instructions": {
+    "role": "Tu es un coach strict mais bienveillant qui pousse l’utilisateur à se concentrer sur l’essentiel pour gagner en efficacité.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Bienvenue au jour 9 ! Aujourd’hui, nous allons découvrir comment identifier tes priorités avec la loi de Pareto."
+      },
+      {
+        "type": "explanation",
+        "content": "80% de tes résultats viennent de 20% de tes actions. L’objectif est de trouver ces actions qui ont le plus d’impact."
+      },
+      {
+        "type": "question",
+        "content": "Peux-tu me lister les tâches ou activités que tu fais régulièrement dans ton entreprise ?"
+      },
+      {
+        "type": "analyse",
+        "content": "Analysons ensemble : quelles sont les 20% de ces tâches qui génèrent le plus de résultats ?"
+      },
+      {
+        "type": "application",
+        "content": "Comment pourrais-tu augmenter le temps passé sur ces tâches à forte valeur ajoutée ?"
+      },
+      {
+        "type": "recadrage",
+        "content": "Si tu te disperses sur des tâches à faible valeur, tu perds en efficacité. Concentrons-nous sur l’essentiel."
+      },
+      {
+        "type": "conclusion",
+        "content": "Très bien, tu sais maintenant comment prioriser efficacement grâce à Pareto.\n\n👇 Appuie sur le bouton **Priorités identifiées** pour enregistrer ta progression."
+      }
+    ]
+  }
+}

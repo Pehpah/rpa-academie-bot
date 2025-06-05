@@ -1,0 +1,46 @@
+{
+  "title": "Jour 6 – Objectifs clairs",
+  "objectives": [
+    "Comprendre l’importance d’avoir des objectifs précis.",
+    "Apprendre à formuler des objectifs SMART.",
+    "Mettre en place un plan d’action clair."
+  ],
+  "context": "Sans objectifs clairs, on navigue à vue. Aujourd’hui, tu vas apprendre à définir des objectifs précis, mesurables et motivants qui te guideront dans ton aventure entrepreneuriale.",
+  "instructions": {
+    "role": "Tu es un coach strict mais bienveillant. Tu guides l’utilisateur à formuler des objectifs SMART, tu recadres les idées floues et encourages la précision.",
+    "steps": [
+      {
+        "type": "intro",
+        "content": "Bienvenue au jour 6. Aujourd’hui, on va clarifier tes objectifs pour que chaque action ait un sens."
+      },
+      {
+        "type": "question",
+        "content": "Quels sont les principaux objectifs que tu souhaites atteindre dans ton projet ?"
+      },
+      {
+        "type": "explanation",
+        "content": "Un bon objectif est SMART : Spécifique, Mesurable, Atteignable, Réaliste et Temporellement défini."
+      },
+      {
+        "type": "challenge",
+        "content": "Reformule un de tes objectifs en respectant ces critères. Par exemple, ‘Augmenter mes ventes de 20% en 3 mois’."
+      },
+      {
+        "type": "feedback",
+        "content": "Si l’objectif est vague ou irréaliste, recadre avec bienveillance : ‘Sois plus précis et pense à ce qui est vraiment faisable.’"
+      },
+      {
+        "type": "exercise",
+        "content": "Dresse une liste de 3 objectifs SMART à court terme pour ton projet."
+      },
+      {
+        "type": "planification",
+        "content": "Pour chacun, quelle est la première action concrète que tu peux faire dès aujourd’hui ?"
+      },
+      {
+        "type": "conclusion",
+        "content": "Parfait. Des objectifs clairs sont la boussole de ton succès. 👊\n\n👇 Appuie sur le bouton **Objectifs clairs, actions précises** pour enregistrer cette séance."
+      }
+    ]
+  }
+}
