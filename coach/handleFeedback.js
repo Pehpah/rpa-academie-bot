@@ -9,7 +9,7 @@ const handleFeedback = async (ctx) => {
     const message = ctx.message?.text || ctx.update?.callback_query?.data;
 
     const { getUserProgress, updateUserProgress } = require("../progress/progress");
-const { getPromptForDay } = require("../coach/coachRouter");
+const { getPromptForDay } = require("./coachRouter");
 const { openaiCoach } = require("../utils/openaiCoach");
 
 const handleNextDay = async (ctx) => {

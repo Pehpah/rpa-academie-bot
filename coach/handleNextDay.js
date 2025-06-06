@@ -1,7 +1,7 @@
-const { promptsIndex } = require('../coach/promptsIndex');
+const { promptsIndex } = require('./promptsIndex');
 const { openaiCoach } = require('../utils/openaiCoach');
 const { getUserProgress, updateUserProgress } = require('../progress/progress');
-const { getPromptForDay } = require('../coach/coachRouter');
+const { getPromptForDay } = require('./coachRouter');
 
 const handleNextDay = async (ctx) => {
   try {

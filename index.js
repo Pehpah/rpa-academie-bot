@@ -13,13 +13,13 @@ const welcomeHandler = require("./handlers/welcomeHandler");
 const unknownHandler = require("./handlers/unknownHandler");
 const coachBotHandler = require("./handlers/coachBotHandler");
 const registerHandler = require("./handlers/registerHandler");
-const handleNextDay = require("./handlers/handleNextDay");
-
+const handleNextDay = require("./coach/handleNextDay");
+const handleCoaching = require("./coach/handleCoaching");
+const handleFeedback = require("./coach/handleFeedback");
 registerHandler(bot); // Enregistrement au démarrage
 
 // ==== Commandes ====
 const profilCommand = require("./commandes/profil");
-const modifierProfilCommand = require("./commandes/modifier");
 const redemarrerCommand = require("./commandes/redemarrer");
 const pehpahCommand = require("./commandes/pehpah");
 const activerCommand = require("./commandes/activer");
@@ -34,7 +34,6 @@ unknownHandler(bot);
 // ==== Enregistrement des commandes ====
 bot.command("coach", (ctx) => coachBotHandler.handleCoaching(ctx)); // ✅ Réagit uniquement aux membres
 bot.command("profil", profilCommand);
-bot.command("modifier_profil", modifierProfilCommand);
 bot.command("redemarrer", redemarrerCommand);
 pehpahCommand(bot);
 bot.command("activer", (ctx) => activerCommand(bot, ctx));
