@@ -5,7 +5,7 @@ const { getUserById } = require('../users/users');
 const { getPromptForDay } = require('../coach/coachRouter');
 const { checkMembership } = require('../utils/checkMembership');
 
-const COACH_CHANNEL = '@RichPreneurAcademie';
+const COACH_CHANNEL = process.env.CANAL_ID; // DOIT être un ID numérique, ex : -1001234567890
 
 const handleCoaching = async (ctx) => {
   try {
@@ -14,7 +14,7 @@ const handleCoaching = async (ctx) => {
     // 1. Vérifie l’abonnement : si non abonné => silence total
     const membership = await checkMembership(ctx.telegram, userId, COACH_CHANNEL);
     if (!membership.success || !membership.isMember) {
-      return; // Silence total pour les non-membres
+      return; // Silence total
     }
 
     // 2. Récupération de la progression

@@ -1,11 +1,14 @@
-// handlers/unknownHandler.js
-
 require('dotenv').config();
 
 module.exports = function (bot) {
   const CHANNEL_ID = process.env.CANAL_ID;
 
-  // ➤ 1. Message reçu
+  if (!CHANNEL_ID) {
+    console.error("❌ Erreur : CANAL_ID n'est pas défini dans .env");
+    return;
+  }
+
+  // ➤ 1. Message inconnu reçu
   bot.on('message', async (ctx) => {
     try {
       const userId = ctx.from.id;
@@ -16,9 +19,15 @@ module.exports = function (bot) {
         member = await ctx.telegram.getChatMember(CHANNEL_ID, userId);
       } catch (err) {
         console.error('🔒 Impossible de vérifier l’abonnement au canal :', err);
+        return; // Sort de la fonction si vérification échoue
       }
 
-      // L'utilisateur n'est pas abonné au canal
+      // Si l'utilisateur est déjà membre, ne rien envoyer
+      if (member.status === 'member' || member.status === 'administrator' || member.status === 'creator') {
+        return;
+      }
+
+      // Sinon, proposer de rejoindre le canal
       await ctx.reply(
         '🚨 Il semble que tu n’aies pas encore rejoint le canal *RP Académie Gratuit*.\n' +
         'Tu dois y entrer pour débloquer ton espace de coaching 🚀',
@@ -33,7 +42,7 @@ module.exports = function (bot) {
         }
       );
     } catch (error) {
-      console.error('❌ Erreur dans unknownHandler :', error);
+      console.error('❌ Erreur dans unknownHandler (message) :', error);
     }
   });
 
