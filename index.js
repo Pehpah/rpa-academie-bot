@@ -3,25 +3,26 @@ console.log("🤖 BOT_TOKEN loaded:", process.env.BOT_TOKEN);
 
 const express = require("express");
 const { Telegraf } = require("telegraf");
-const path = require("path");
 
 const app = express();
 const bot = new Telegraf(process.env.BOT_TOKEN);
-app.use(express.json()); // Pour parser JSON des requêtes POST
+app.use(express.json());
 
 // ==== Handlers ====
 const welcomeHandler = require("./handlers/welcomeHandler");
 const unknownHandler = require("./handlers/unknownHandler");
 const coachBotHandler = require("./handlers/coachBotHandler");
 const registerHandler = require("./handlers/registerHandler");
-registerHandler(bot);
+const handleNextDay = require("./handlers/handleNextDay");
+
+registerHandler(bot); // Enregistrement au démarrage
 
 // ==== Commandes ====
 const profilCommand = require("./commandes/profil");
 const modifierProfilCommand = require("./commandes/modifier");
 const redemarrerCommand = require("./commandes/redemarrer");
 const pehpahCommand = require("./commandes/pehpah");
-const activerCommand = require("./commandes/activer"); // ✅ Ajout commande activer
+const activerCommand = require("./commandes/activer");
 
 // ==== Utilitaires ====
 const { cleanOldFiles } = require("./utils/fileCleaner");
@@ -30,18 +31,22 @@ const { cleanOldFiles } = require("./utils/fileCleaner");
 welcomeHandler(bot);
 unknownHandler(bot);
 
-// ==== Commandes utilisateur ====
-bot.command("coach", coachBotHandler.handleCoaching);
+// ==== Enregistrement des commandes ====
+bot.command("coach", (ctx) => coachBotHandler.handleCoaching(ctx)); // ✅ Réagit uniquement aux membres
 bot.command("profil", profilCommand);
 bot.command("modifier_profil", modifierProfilCommand);
 bot.command("redemarrer", redemarrerCommand);
-bot.command("pehpah", pehpahCommand);
-bot.command("activer", (ctx) => activerCommand(bot, ctx)); // ✅ Activation
+pehpahCommand(bot);
+bot.command("activer", (ctx) => activerCommand(bot, ctx));
 
-// ✅ Réponse au bouton "Démarrer le coaching du jour"
+// ✅ Coaching suivant
+bot.command("suivant", handleNextDay);
+bot.action("next_day", handleNextDay); // inline button
+
+// ✅ Bouton inline pour démarrer le coaching
 bot.action("start_coaching", (ctx) => coachBotHandler.handleCoaching(ctx));
 
-// ==== Cron Nettoyage fichiers ====
+// ==== Cron nettoyage fichiers temporaires ====
 cleanOldFiles(); // au démarrage
 setInterval(() => {
   console.log("🧹 Nettoyage automatique des fichiers obsolètes...");
@@ -61,7 +66,7 @@ app.get("/", (req, res) => {
   res.send("✅ RPA Bot est actif et prêt à coacher !");
 });
 
-// ==== Lancement du Bot et du Serveur ====
+// ==== Lancement du bot et du serveur ====
 app.listen(PORT, async () => {
   console.log(`🚀 Serveur Express lancé sur le port ${PORT}`);
   await bot.launch();

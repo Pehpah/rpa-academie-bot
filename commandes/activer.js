@@ -1,7 +1,7 @@
 const { Markup } = require("telegraf");
 const { checkMembership } = require("../utils/checkMembership");
 
-const CHANNEL_ID = process.env.CHANNEL_ID || "https://tally.so/r/nPeGr5"; // remplace par ton ID de canal réel si nécessaire
+const CHANNEL_ID = process.env.CHANNEL_ID || "@RichpreneuracademieRPA"; // Remplace par l'@ ou l'ID du canal
 
 module.exports = async function activerCommand(bot, ctx) {
   try {
@@ -19,16 +19,11 @@ Tu es bien membre du canal de la RichPreneur Académie. Tu peux maintenant accé
           Markup.button.callback("🚀 Démarrer le coaching du jour", "start_coaching"),
         ])
       );
-    } else {
-      await ctx.reply(
-        `❌ Pour activer ton coaching RPA, tu dois d'abord rejoindre notre canal officiel.
-
-👉 Clique ici pour le rejoindre : =https://t.me/RichpreneuracademieRPA`,
-        { disable_web_page_preview: true }
-      );
     }
+
+    // Silence total si l'utilisateur n'est pas membre
   } catch (error) {
-    console.error("Erreur dans la commande /activer :", error.message);
-    await ctx.reply("❌ Une erreur est survenue lors de l’activation de ton coaching. Réessaie plus tard.");
+    console.error("❌ Erreur dans la commande /activer :", error);
+    // Aucun message envoyé à l'utilisateur en cas d'erreur
   }
 };
