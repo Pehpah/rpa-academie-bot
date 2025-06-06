@@ -1,46 +1,36 @@
-const { promptsIndex } = require('../coach/promptsIndex');
-const { openaiCoach } = require('../utils/openaiCoach');
-const { getUserProgress, updateUserProgress } = require('../progress/progress');
-const { getUserById } = require('../users/users');
-const { getPromptForDay } = require('../coach/coachRouter');
-const { checkMembership } = require('../utils/checkMembership');
+// /bot/coachBotHandler.js
 
-const COACH_CHANNEL = process.env.CANAL_ID; // DOIT être un ID numérique, ex : -1001234567890
+const { handleCoaching } = require('../coach/handleCoaching');
+const { handleNextDay } = require('../coach/handleNextDay');
+const { handleFeedback } = require('../coach/handleFeedback');
+const registerActions = require('../bot/actions');
 
-const handleCoaching = async (ctx) => {
-  try {
-    const userId = ctx.from.id;
+const coachBotHandler = (bot) => {
+  // 🔁 Enregistre toutes les actions inline
+  registerActions(bot);
 
-    // 1. Vérifie l’abonnement : si non abonné => silence total
-    const membership = await checkMembership(ctx.telegram, userId, COACH_CHANNEL);
-    if (!membership.success || !membership.isMember) {
-      return; // Silence total
-    }
+  // 🔹 Commande /start ou démarrage initial (à personnaliser si besoin)
+  bot.start(async (ctx) => {
+    await ctx.reply(
+      `👋 Bienvenue dans le programme RPA Coaching !\n\nCe programme va t’accompagner chaque jour pour progresser.`,
+      {
+        reply_markup: {
+          inline_keyboard: [
+            [{ text: "🚀 Activer mon coaching", callback_data: "activate_coaching" }],
+          ],
+        },
+      }
+    );
+  });
 
-    // 2. Récupération de la progression
-    const progress = getUserProgress(userId);
-    const currentDay = progress.currentDay || 1;
+  // 🔹 Commande /coaching → démarre ou reprend là où il s’est arrêté
+  bot.command('coaching', handleCoaching);
 
-    // 3. Récupération du prompt du jour
-    const prompt = getPromptForDay(currentDay);
-    if (!prompt) {
-      return ctx.reply(`📚 Le programme de coaching est terminé ! Félicitations 🎉`);
-    }
+  // 🔹 Commande /nextday (optionnelle, mais utile pour debug)
+  bot.command('nextday', handleNextDay);
 
-    // 4. Message d’introduction
-    const introMessage = `📅 Jour ${currentDay} - ${prompt.title}\n\n${prompt.intro}`;
-    await ctx.reply(introMessage);
-
-    // 5. Génération du contenu personnalisé via OpenAI
-    const gptResponse = await openaiCoach(userId, prompt);
-    await ctx.reply(gptResponse);
-
-    // 6. Mise à jour de la progression
-    updateUserProgress(userId, currentDay);
-  } catch (error) {
-    console.error("❌ Erreur dans handleCoaching :", error);
-    ctx.reply("Une erreur est survenue. Réessaie plus tard.");
-  }
+  // 🔹 Commande /feedback → laisse un retour (optionnel)
+  bot.command('feedback', handleFeedback);
 };
 
-module.exports = { handleCoaching };
+module.exports = coachBotHandler;
