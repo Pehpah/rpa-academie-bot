@@ -14,9 +14,9 @@ const unknownHandler = require("./handlers/unknownHandler");
 const coachBotHandler = require("./handlers/coachBotHandler");
 const registerHandler = require("./handlers/registerHandler");
 const handleNextDay = require("./coach/handleNextDay");
-const handleCoaching = require("./coach/handleCoaching");
+const { handleCoaching } = require("./coach/handleCoaching");
 const handleFeedback = require("./coach/handleFeedback");
-registerHandler(bot); // Enregistrement au démarrage
+registerHandler(bot);
 
 // ==== Commandes ====
 const profilCommand = require("./commandes/profil");
@@ -27,35 +27,40 @@ const activerCommand = require("./commandes/activer");
 // ==== Utilitaires ====
 const { cleanOldFiles } = require("./utils/fileCleaner");
 
-// ==== Initialisation des Handlers ====
+// ==== Cron automatique ====
+const coachingCronjob = require("./notifications/cronjob");
+
+// ==== Initialisation des handlers ====
 welcomeHandler(bot);
 unknownHandler(bot);
 
-// ==== Enregistrement des commandes ====
-bot.command("coach", (ctx) => coachBotHandler.handleCoaching(ctx)); // ✅ Réagit uniquement aux membres
+// ==== Commandes Telegram ====
+bot.command("coach", (ctx) => coachBotHandler.handleCoaching(ctx));
+bot.command("coaching", (ctx) => coachBotHandler.handleCoaching(ctx));
 bot.command("profil", profilCommand);
 bot.command("redemarrer", redemarrerCommand);
 pehpahCommand(bot);
 bot.command("activer", (ctx) => activerCommand(bot, ctx));
+bot.command("suivant", handleNextDay); // Avance dans le coaching
 
-// ✅ Coaching suivant
-bot.command("suivant", handleNextDay);
-bot.action("next_day", handleNextDay); // inline button
-
-// ✅ Bouton inline pour démarrer le coaching
+// ==== Boutons inline ====
+bot.action("activate_coaching", handleCoaching);
 bot.action("start_coaching", (ctx) => coachBotHandler.handleCoaching(ctx));
+bot.action("next_day", handleNextDay);
 
-// ==== Cron nettoyage fichiers temporaires ====
-cleanOldFiles(); // au démarrage
+// ==== Nettoyage fichiers temporaires ====
+cleanOldFiles(); // nettoyage immédiat
 setInterval(() => {
   console.log("🧹 Nettoyage automatique des fichiers obsolètes...");
   cleanOldFiles();
 }, 24 * 60 * 60 * 1000); // toutes les 24h
 
+// ==== Notifications coaching (à 9h du matin, via cronjob) ====
+coachingCronjob.start();
+
 // ==== Routes Express ====
 const coachApiRoutes = require("./routes/coachApiRoutes");
 const logViewerRoutes = require("./routes/logViewer");
-
 app.use("/api/coach", coachApiRoutes);
 app.use("/logs", logViewerRoutes);
 
@@ -65,7 +70,7 @@ app.get("/", (req, res) => {
   res.send("✅ RPA Bot est actif et prêt à coacher !");
 });
 
-// ==== Lancement du bot et du serveur ====
+// ==== Lancement du bot ====
 app.listen(PORT, async () => {
   console.log(`🚀 Serveur Express lancé sur le port ${PORT}`);
   await bot.launch();

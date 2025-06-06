@@ -1,15 +1,30 @@
+const fs = require('fs');
+const path = require('path');
 const { promptsIndex } = require('./promptsIndex');
 const { openaiCoach } = require('../utils/openaiCoach');
-const { getUserProgress, updateUserProgress } = require('../progress/progress');
 const { getPromptForDay } = require('./coachRouter');
+
+// 🔧 Chemin du fichier JSON
+const progressPath = path.join(__dirname, '../progress/progress.json');
+
+// 🧠 Fonction pour lire le fichier
+const readProgress = () => {
+  if (!fs.existsSync(progressPath)) return {};
+  const raw = fs.readFileSync(progressPath, 'utf-8');
+  return JSON.parse(raw);
+};
+
+// 💾 Fonction pour écrire
+const writeProgress = (data) => {
+  fs.writeFileSync(progressPath, JSON.stringify(data, null, 2));
+};
 
 const handleNextDay = async (ctx) => {
   try {
-    const userId = ctx.from.id;
+    const userId = String(ctx.from.id);
+    const progressData = readProgress();
 
-    // Récupérer la progression actuelle
-    const progress = getUserProgress(userId);
-    let currentDay = progress.currentDay || 1;
+    const currentDay = progressData[userId]?.currentDay || 1;
     const nextDay = currentDay + 1;
 
     const nextPrompt = getPromptForDay(nextDay);
@@ -18,16 +33,20 @@ const handleNextDay = async (ctx) => {
       return ctx.reply("🎉 Tu as terminé tout le programme de coaching. Bravo !");
     }
 
-    // Afficher le prompt du jour suivant
+    // 🎯 Afficher l’introduction
     const introMessage = `📅 Jour ${nextDay} - ${nextPrompt.title}\n\n${nextPrompt.intro}`;
     await ctx.reply(introMessage);
 
-    // Obtenir la réponse de l’IA coach
+    // 🤖 Coach IA
     const gptResponse = await openaiCoach(userId, nextPrompt);
     await ctx.reply(gptResponse);
 
-    // Mettre à jour la progression de l’utilisateur
-    updateUserProgress(userId, nextDay);
+    // ✅ Mise à jour
+    progressData[userId] = {
+      currentDay: nextDay,
+      lastCompletedAt: new Date().toISOString(),
+    };
+    writeProgress(progressData);
 
   } catch (error) {
     console.error("❌ Erreur dans handleNextDay :", error);

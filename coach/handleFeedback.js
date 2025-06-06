@@ -1,33 +1,13 @@
+// /coach/handleFeedback.js
+
 const fs = require('fs');
 const path = require('path');
-
 const feedbackFile = path.join(__dirname, '../data/feedback.json');
 
 const handleFeedback = async (ctx) => {
   try {
     const userId = ctx.from.id;
     const message = ctx.message?.text || ctx.update?.callback_query?.data;
-
-    const { getUserProgress, updateUserProgress } = require("../progress/progress");
-const { getPromptForDay } = require("./coachRouter");
-const { openaiCoach } = require("../utils/openaiCoach");
-
-const handleNextDay = async (ctx) => {
-  const userId = ctx.from.id;
-  const progress = getUserProgress(userId);
-  const nextDay = (progress.currentDay || 1) + 1;
-  const prompt = getPromptForDay(nextDay);
-
-  if (!prompt) {
-    return ctx.reply("🎉 Tu as terminé tout le programme de coaching !");
-  }
-
-  await ctx.reply(`📅 Jour ${nextDay} - ${prompt.title}\n\n${prompt.intro}`);
-  const gptResponse = await openaiCoach(userId, prompt);
-  await ctx.reply(gptResponse);
-
-  updateUserProgress(userId, nextDay);
-};
 
     // Extrait uniquement le texte après la commande "/feedback"
     const parts = message.split(' ');
